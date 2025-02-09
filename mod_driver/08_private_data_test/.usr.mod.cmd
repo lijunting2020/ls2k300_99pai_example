@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/qianrushi/mod_driver/08_private_data_test/usr.mod := printf '%s\n'   usr.o | awk '!x[$$0]++ { print("/home/lijunting/aown/qianrushi/mod_driver/08_private_data_test/"$$0) }' > /home/lijunting/aown/qianrushi/mod_driver/08_private_data_test/usr.mod

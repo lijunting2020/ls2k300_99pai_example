@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h> 
+
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <sys/mman.h>
+ 
+//#define GPIO_MUX_2 (*(unsigned int *)0x16000498)
+#define GPIO_MUX_2_ADDRESS (0x16000498)
+#define PAGE_SIZE         (0x8000)
+
+int main(int argc, char *argv[]) {
+
+    //GPIO_MUX_2 = 0xFFFFFFFF;
+    static int gpio_fd = 0;
+    static int page_aligned = 0;
+    static char  *gpio_address = NULL;
+    gpio_fd = open("/dev/mem", O_RDWR);
+
+    if(gpio_fd < 0)
+    {
+        printf("open /dev/mem failed\r\n");
+    }
+    else
+    {
+        page_aligned = (GPIO_MUX_2_ADDRESS & (~(PAGE_SIZE - 1)));//页对齐
+        gpio_address = (char *)mmap(NULL, PAGE_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, gpio_fd, page_aligned);
+        if((void *)-1 == gpio_address)
+       {
+        printf("mmap gpio address failed\r\n");
+       }
+       printf("mmap gpio address seccess\r\n");
+    }
+*((int *)(gpio_address + (GPIO_MUX_2_ADDRESS - page_aligned))) = 0xFF00FFFF;
+printf("gpio write seccess\r\n");
+    /*
+    if(argc >= 3)
+    {
+        int pos = atoi(argv[1]); 
+        int val = atoi(argv[2]); 
+        
+        if(val == 0)
+        {
+           clear_register(pos);
+        }
+        else
+        {
+            clear_register(pos);
+            write_register(pos, val);
+        }
+        
+        printf("您是要修改第%d位的值为%d.\n", pos, val);
+    }
+    else
+    {
+        printf("请输入要更新的位和值，例如：在第20、21位写入0x11,请入参数20和3.\n");
+    }
+    */
+    return 0;
+}

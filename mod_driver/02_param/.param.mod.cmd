@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/qianrushi/mod_driver/02_param/param.mod := printf '%s\n'   param.o | awk '!x[$$0]++ { print("/home/lijunting/aown/qianrushi/mod_driver/02_param/"$$0) }' > /home/lijunting/aown/qianrushi/mod_driver/02_param/param.mod

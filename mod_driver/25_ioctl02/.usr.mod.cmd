@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/qianrushi/mod_driver/25_ioctl02/usr.mod := printf '%s\n'   usr.o | awk '!x[$$0]++ { print("/home/lijunting/aown/qianrushi/mod_driver/25_ioctl02/"$$0) }' > /home/lijunting/aown/qianrushi/mod_driver/25_ioctl02/usr.mod

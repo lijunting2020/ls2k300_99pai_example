@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/qianrushi/mod_driver/01_helloworld/helloworld.mod := printf '%s\n'   helloworld.o | awk '!x[$$0]++ { print("/home/lijunting/aown/qianrushi/mod_driver/01_helloworld/"$$0) }' > /home/lijunting/aown/qianrushi/mod_driver/01_helloworld/helloworld.mod

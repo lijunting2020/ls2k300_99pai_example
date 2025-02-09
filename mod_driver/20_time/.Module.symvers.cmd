@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/qianrushi/mod_driver/20_time/Module.symvers :=  scripts/mod/modpost -M -m       -o /home/lijunting/aown/qianrushi/mod_driver/20_time/Module.symvers -n -T /home/lijunting/aown/qianrushi/mod_driver/20_time/modules.order -i Module.symvers -e 

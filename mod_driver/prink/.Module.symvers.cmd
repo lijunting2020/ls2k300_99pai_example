@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/qianrushi/mod_driver/prink/Module.symvers :=  scripts/mod/modpost -M -m       -o /home/lijunting/aown/qianrushi/mod_driver/prink/Module.symvers -n -T /home/lijunting/aown/qianrushi/mod_driver/prink/modules.order -i Module.symvers -e 

@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/qianrushi/mod_driver/prink/modules.order := {   echo /home/lijunting/aown/qianrushi/mod_driver/prink/helloworld.o; :; } > /home/lijunting/aown/qianrushi/mod_driver/prink/modules.order

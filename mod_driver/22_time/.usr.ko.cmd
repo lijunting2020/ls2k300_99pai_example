@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/qianrushi/mod_driver/22_time/usr.ko := /usr/bin/loongarch64-aosc-linux-gnu-ld -r -m elf64loongarch -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T scripts/module.lds -o /home/lijunting/aown/qianrushi/mod_driver/22_time/usr.ko /home/lijunting/aown/qianrushi/mod_driver/22_time/usr.o /home/lijunting/aown/qianrushi/mod_driver/22_time/usr.mod.o

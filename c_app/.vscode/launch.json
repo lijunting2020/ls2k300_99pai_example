@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "gdb",
+      "request": "launch",
+      "name": "Launch Program",
+      "target": "${workspaceRoot}/hellowork",
+      "cwd": "${workspaceRoot}",
+      "valuesFormatting": "parseText",
+      "gdbpath": "gdb"
+    }
+  ]
+}
