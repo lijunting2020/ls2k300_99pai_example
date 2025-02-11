@@ -9,13 +9,9 @@
 #include <linux/errno.h>
 #include <linux/time.h>
 
-#define CMD_TEST0 _IO('L', 0)
-#define CMD_TEST1 _IOW('L', 1, int)
-#define CMD_TEST2 _IOR('L', 2, int)
-
-#define BUFSIZE 1024
-
-static char mem[BUFSIZE] = {0};
+#define TIME_CLOSE_CMD _IO('L', 0)
+#define TIME_OPEN_CMD _IO('L', 1)
+#define TIME_SETTIME_CMD _IOW('L', 2, int)
 
 struct device_test{
     dev_t dev_num;
@@ -25,125 +21,62 @@ struct device_test{
     struct class *class;
     struct device *device;
     char kbuf[32];
+    int counter;
 };
 
 struct device_test dev1;
 
+static void timer_function(struct timer_list *t);
+
+DEFINE_TIMER(test_timer, timer_function);
+
+static void timer_function(struct timer_list *t)
+{
+    mod_timer(&test_timer, jiffies_64 + msecs_to_jiffies(dev1.counter));
+    printk("This is timer_function\n");
+}
+
 static int cdev_test_open(struct inode *inode, struct file *file){
     file->private_data=&dev1;
     printk("this is cdev_test_open\n");
-
     return 0;
 }
 
 static ssize_t cdev_test_read(struct file *file, char __user *buf, size_t size, loff_t *off){
     struct device_test *test_dev=(struct device_test *)file->private_data;
-    loff_t p = *off;
-    size_t count = size;
-    if (p > BUFSIZE){
-        return 0;
-    }
-    if (count > BUFSIZE - p){
-        count = BUFSIZE - p;
-    }
-
-    if (copy_to_user(buf,mem+p, count) != 0){
-        printk("copy_to_user error \n");
-        return -1;
-    }
-    int i;
-    for(i=0; i < strlen(mem); i++){
-        printk("buf[%d] is %c\n",i, mem[i]);
-    }
-    printk("mem is %s, p is %lu, count is %d\n", mem+p, p, count);
-    *off += count;
-    return count;
+    return 0;
 }
 
 static ssize_t cdev_test_write(struct file *file, const char __user *buf, size_t size, loff_t *off){
     struct device_test *test_dev=(struct device_test *)file->private_data;
-    loff_t p = *off;
-    size_t count = size;
-
-    if (p > BUFSIZE){
-        return 0;
-    }
-    if (count > BUFSIZE - p){
-        count = BUFSIZE - p;
-    }
-
-    if (copy_from_user(mem+p, buf, count) != 0){
-        printk("copy_from_user error \n");
+    if (copy_from_user (test_dev->kbuf,buf,size) != 0){
+        printk("copy_from_user error\n");
         return -1;
-    }
-    printk("mem is %s, p is %lu\n", mem+p, p);
-    *off += count;
-    return count;
-}
-
-static loff_t cdev_test_llseek(struct file *file, loff_t offset, int whence){
-    loff_t new_offset;
-    switch (whence)
-    {
-        case SEEK_SET:
-          if (offset < 0) {
-              return -EINVAL;
-              break;
-          }
-          if (offset > BUFSIZE) {
-              return -EINVAL;
-              break;
-          }
-          new_offset = offset;
-        break;
-        case SEEK_CUR:
-          if ((file->f_pos+offset) > BUFSIZE) {
-              return -EINVAL;
-              break;
-          }
-          if ((file->f_pos+offset) < 0) {
-              return -EINVAL;
-              break;
-          }
-          new_offset = file->f_pos + offset;
-        break;
-        case SEEK_END:
-          if ((file->f_pos+offset) < 0) {
-              return -EINVAL;
-              break;
-           }
-          new_offset = BUFSIZE + offset;
-        break;
-        default:
-        return -EINVAL;
-    }
-    file->f_pos = new_offset;
-    return new_offset;
+    } 
+    printk("test_dev->kbuf is %s\n", test_dev->kbuf);
+    
+    return 0;
 }
 
 static int cdev_test_release(struct inode *inode, struct file *file){
+    del_timer(&test_timer);
     return 0;
 }
 
 static long cdev_test_ioctl (struct file *file, unsigned int cmd, unsigned long arg){
+    struct device_test *test_dev=(struct device_test *)file->private_data;
     switch (cmd) 
     {
-        case CMD_TEST0:
-        printk("This is CMD_TEST0\n");
-        break;
-        case CMD_TEST1:
-        printk("This is CMD_TEST1\n");
-        printk("arg is %d\n", arg);
-        break;
-        case CMD_TEST2:
-        int val = 1;
-        printk("This is CMD_TEST2 and val=%d\n", val);
-        if(copy_to_user((int *)arg, &val, sizeof(val))!=0)
-        {
-            printk("This is CMD_TEST2 copy_to_user err\n");
-            return -1;
-        }
-        break;
+        case TIME_CLOSE_CMD:
+             del_timer(&test_timer);
+             break;
+        case TIME_OPEN_CMD:
+             add_timer(&test_timer);
+             break;
+        case TIME_SETTIME_CMD:
+             test_dev->counter=arg;
+             test_timer.expires = jiffies_64 + msecs_to_jiffies(test_dev->counter=arg);
+             break;
         default:
         break;
     }
@@ -156,7 +89,6 @@ static struct file_operations cdev_test_ops={
     .read=cdev_test_read,
     .write=cdev_test_write,
     .release=cdev_test_release,
-    .llseek=cdev_test_llseek,
     .unlocked_ioctl=cdev_test_ioctl
 };
 
@@ -215,7 +147,7 @@ static void mod_exit(void)
 
     device_destroy(dev1.class,dev1.dev_num);
     class_destroy(dev1.class);
-
+    del_timer(&test_timer);
     printk("bye bye");
 }
 

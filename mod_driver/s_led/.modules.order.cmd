@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led/modules.order := {   echo /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led/s_led.o; :; } > /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led/modules.order

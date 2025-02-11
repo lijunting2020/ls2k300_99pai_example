@@ -36,25 +36,29 @@ MODULE_INFO(retpoline, "Y");
 static const struct modversion_info ____versions[]
 __used __section("__versions") = {
 	{ 0x92997ed8, "_printk" },
+	{ 0x6a8831e0, "jiffies_64" },
+	{ 0xc38c83b8, "mod_timer" },
+	{ 0xdc0e4855, "timer_delete" },
 	{ 0x6091b333, "unregister_chrdev_region" },
 	{ 0xf72b337f, "cdev_del" },
 	{ 0x93e2c454, "device_destroy" },
 	{ 0xe6c64fd2, "class_destroy" },
+	{ 0xedc03953, "iounmap" },
+	{ 0x24d273d1, "add_timer" },
 	{ 0xe3ec2f2b, "alloc_chrdev_region" },
 	{ 0x9cca1661, "cdev_init" },
 	{ 0xdfb40505, "cdev_add" },
 	{ 0xcd5ec888, "class_create" },
 	{ 0xaa17a720, "device_create" },
-	{ 0x81c6c860, "cpu_data" },
+	{ 0x40863ba1, "ioremap_prot" },
 	{ 0xd9caf6e1, "__copy_user" },
-	{ 0x98cf60b3, "strlen" },
-	{ 0x8f678b07, "__stack_chk_guard" },
-	{ 0xf0fdf6cb, "__stack_chk_fail" },
+	{ 0x81c6c860, "cpu_data" },
 	{ 0xfb578fc5, "memset" },
+	{ 0x98cf60b3, "strlen" },
 	{ 0x2f2590d3, "module_layout" },
 };
 
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "3F33558B489A68E00815E89");
+MODULE_INFO(srcversion, "4C5EEFB1B4D1458CC6A6938");

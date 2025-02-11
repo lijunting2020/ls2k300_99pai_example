@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led/s_led.mod := printf '%s\n'   s_led.o | awk '!x[$$0]++ { print("/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led/"$$0) }' > /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led/s_led.mod

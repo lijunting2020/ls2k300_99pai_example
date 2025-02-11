@@ -27,6 +27,13 @@ struct device_test{
     char kbuf[32];
 };
 
+struct args
+{
+    int a;
+    int b;
+    int c;
+};
+
 struct device_test dev1;
 
 static int cdev_test_open(struct inode *inode, struct file *file){
@@ -126,6 +133,9 @@ static int cdev_test_release(struct inode *inode, struct file *file){
 }
 
 static long cdev_test_ioctl (struct file *file, unsigned int cmd, unsigned long arg){
+    int val = 1;
+    struct args test;
+
     switch (cmd) 
     {
         case CMD_TEST0:
@@ -133,10 +143,16 @@ static long cdev_test_ioctl (struct file *file, unsigned int cmd, unsigned long 
         break;
         case CMD_TEST1:
         printk("This is CMD_TEST1\n");
-        printk("arg is %d\n", arg);
+        if (copy_from_user(&test, (int *)arg, sizeof(test))!=0)
+        {
+            printk("This is CMD_TEST1 copy_from_user err\n");
+            return -1;
+        }
+        printk("arg is %d\n", test.a);
+        printk("arg is %d\n", test.b);
+        printk("arg is %d\n", test.c);
         break;
         case CMD_TEST2:
-        int val = 1;
         printk("This is CMD_TEST2 and val=%d\n", val);
         if(copy_to_user((int *)arg, &val, sizeof(val))!=0)
         {
