@@ -1,0 +1,16 @@
+{
+    "C_Cpp_Runner.cCompilerPath": "/usr/bin/loongarch64-aosc-linux-gnu-gcc",
+    "workbench.iconTheme":"vs-seti",
+    "explorer.confirmDelete": false,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "cmake.showOptionsMovedNotification": false,
+    "c-cpp-compile-run.c-compiler": "/usr/bin/loongarch64-aosc-linux-gnu-gcc",
+    "c-cpp-compile-run.cpp-compiler": "/usr/bin/loongarch64-aosc-linux-gnu-g++",
+    "terminal.external.linuxExec": "konsole",
+    "editor.fontSize": 20,
+    "workbench.colorTheme": "Owlet (Palenight)",
+    "redhat.telemetry.enabled": true
+}

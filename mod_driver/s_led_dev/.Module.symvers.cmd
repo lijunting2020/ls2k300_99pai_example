@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/Module.symvers :=  scripts/mod/modpost -M -m       -o /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/Module.symvers -n -T /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/modules.order -i Module.symvers -e 
