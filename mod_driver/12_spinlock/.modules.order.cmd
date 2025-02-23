@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/modules.order := {   echo /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/usr.o; :; } > /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/modules.order

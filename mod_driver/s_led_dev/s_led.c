@@ -10,6 +10,8 @@
 #include <asm-generic/io.h>
 #include <linux/ioctl.h>
 #include <linux/time.h>
+#include <linux/atomic.h>
+#include <asm-generic/atomic.h>
 
 #define OFF_CMD _IO('C', 0)        //关灯
 #define ON_CMD _IOW('C', 1, int)   //开灯 1.常亮  2.闪
@@ -32,6 +34,8 @@ struct device_s_led{
 };
 
 struct device_s_led s_led;
+static spinlock_t spinlock;
+static int flag = 1;
 
 static void timer_function(struct timer_list *t);
 DEFINE_TIMER(timer, timer_function);
@@ -59,6 +63,14 @@ static void timer_function(struct timer_list *t)
 }
 
 static int s_led_open(struct inode *inode, struct file *file){
+    spin_lock(&spinlock);
+    if (flag!=1) {
+        spin_unlock(&spinlock);
+        return -EBUSY;
+    }
+    flag = 0;
+    spin_unlock(&spinlock);
+
     file->private_data=&s_led;
     printk("this is s_led open\n");
     return 0;
@@ -150,6 +162,9 @@ static loff_t cdev_test_llseek(struct file *file, loff_t offset, int whence){
 }
 
 static int s_led_release(struct inode *inode, struct file *file){
+    spin_lock(&spinlock);
+    flag = 1;
+    spin_unlock(&spinlock);
     return 0;
 }
 

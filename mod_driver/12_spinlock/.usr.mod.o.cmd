@@ -1,8 +1,11 @@
-savedcmd_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_led.o := /usr/bin/loongarch64-aosc-linux-gnu-gcc -Wp,-MMD,/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/.s_led.o.d -nostdinc -I./arch/loongarch/include -I./arch/loongarch/include/generated  -I./include -I./arch/loongarch/include/uapi -I./arch/loongarch/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -DVMLINUX_LOAD_ADDRESS=0x9000000000200000 -fmacro-prefix-map=./= -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mno-relax -Wa,-mno-relax -Wa,-mthin-add-sub -mabi=lp64s -pipe -msoft-float -mexplicit-relocs -mno-check-zero-division -fno-builtin-memcpy -fno-builtin-memmove -fno-builtin-memset -fno-asynchronous-unwind-tables -mstrict-align -isystem /usr/lib/gcc/loongarch64-aosc-linux-gnu/14.2.0/include -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fno-stack-clash-protection -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -Wall -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-stringop-overflow -Wno-array-bounds -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-restrict -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare  -DMODULE -DLDEBUG=9  -DKBUILD_BASENAME='"s_led"' -DKBUILD_MODNAME='"s_led"' -D__KBUILD_MODNAME=kmod_s_led -c -o /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_led.o /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_led.c  
+savedcmd_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/usr.mod.o := /usr/bin/loongarch64-aosc-linux-gnu-gcc -Wp,-MMD,/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/.usr.mod.o.d -nostdinc -I./arch/loongarch/include -I./arch/loongarch/include/generated -I./include -I./arch/loongarch/include/uapi -I./arch/loongarch/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -DVMLINUX_LOAD_ADDRESS=0x9000000000200000 -fmacro-prefix-map=./= -std=gnu11 -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -mno-relax -Wa,-mno-relax -Wa,-mthin-add-sub -mabi=lp64s -pipe -msoft-float -mexplicit-relocs -mno-check-zero-division -fno-builtin-memcpy -fno-builtin-memmove -fno-builtin-memset -fno-asynchronous-unwind-tables -mstrict-align -isystem /usr/lib/gcc/loongarch64-aosc-linux-gnu/14.2.0/include -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-races -fstack-protector-strong -fomit-frame-pointer -ftrivial-auto-var-init=zero -fno-stack-clash-protection -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -Wall -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=2048 -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-dangling-pointer -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-stringop-overflow -Wno-array-bounds -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-restrict -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-type-limits -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -DMODULE -DKBUILD_BASENAME='"usr.mod"' -DKBUILD_MODNAME='"usr"' -D__KBUILD_MODNAME=kmod_usr -c -o /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/usr.mod.o /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/usr.mod.c
 
-source_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_led.o := /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_led.c
+source_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/usr.mod.o := /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/usr.mod.c
 
-deps_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_led.o := \
+deps_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/usr.mod.o := \
+    $(wildcard include/config/UNWINDER_ORC) \
+    $(wildcard include/config/MODULE_UNLOAD) \
+    $(wildcard include/config/MITIGATION_RETPOLINE) \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
@@ -21,7 +24,6 @@ deps_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_l
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
-    $(wildcard include/config/MITIGATION_RETPOLINE) \
     $(wildcard include/config/GCC_ASM_GOTO_OUTPUT_WORKAROUND) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/SHADOW_CALL_STACK) \
@@ -49,7 +51,6 @@ deps_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_l
     $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
     $(wildcard include/config/KUNIT) \
     $(wildcard include/config/PRINTK_INDEX) \
-    $(wildcard include/config/MODULE_UNLOAD) \
     $(wildcard include/config/CONSTRUCTORS) \
     $(wildcard include/config/FUNCTION_ERROR_INJECTION) \
     $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
@@ -923,7 +924,6 @@ deps_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_l
   include/asm-generic/error-injection.h \
   include/linux/dynamic_debug.h \
   arch/loongarch/include/asm/module.h \
-    $(wildcard include/config/UNWINDER_ORC) \
     $(wildcard include/config/DYNAMIC_FTRACE) \
   arch/loongarch/include/asm/inst.h \
   arch/loongarch/include/asm/orc_types.h \
@@ -931,66 +931,17 @@ deps_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_l
     $(wildcard include/config/HAVE_MOD_ARCH_SPECIFIC) \
     $(wildcard include/config/MODULES_USE_ELF_REL) \
     $(wildcard include/config/MODULES_USE_ELF_RELA) \
-  include/linux/cdev.h \
-  include/linux/device.h \
-    $(wildcard include/config/HAS_IOMEM) \
-    $(wildcard include/config/GENERIC_MSI_IRQ) \
-    $(wildcard include/config/ENERGY_MODEL) \
-    $(wildcard include/config/PINCTRL) \
-    $(wildcard include/config/DMA_OPS) \
-    $(wildcard include/config/DMA_DECLARE_COHERENT) \
-    $(wildcard include/config/DMA_CMA) \
-    $(wildcard include/config/SWIOTLB) \
-    $(wildcard include/config/SWIOTLB_DYNAMIC) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
-    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
-    $(wildcard include/config/DMA_OPS_BYPASS) \
-    $(wildcard include/config/PM_SLEEP) \
-    $(wildcard include/config/OF) \
-    $(wildcard include/config/DEVTMPFS) \
-  include/linux/dev_printk.h \
-  include/linux/energy_model.h \
-    $(wildcard include/config/SCHED_DEBUG) \
-  include/linux/sched/cpufreq.h \
-    $(wildcard include/config/CPU_FREQ) \
-  include/linux/sched/topology.h \
-    $(wildcard include/config/SCHED_CLUSTER) \
-    $(wildcard include/config/SCHED_MC) \
-    $(wildcard include/config/CPU_FREQ_GOV_SCHEDUTIL) \
-  include/linux/sched/idle.h \
-  include/linux/sched/sd_flags.h \
-  include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/VT_CONSOLE_SLEEP) \
-    $(wildcard include/config/CXL_SUSPEND) \
-    $(wildcard include/config/PM) \
-    $(wildcard include/config/PM_CLK) \
-    $(wildcard include/config/PM_GENERIC_DOMAINS) \
-  include/linux/device/bus.h \
-    $(wildcard include/config/ACPI) \
-  include/linux/device/class.h \
-  include/linux/device/driver.h \
-  arch/loongarch/include/generated/asm/device.h \
-  include/asm-generic/device.h \
-  include/linux/pm_wakeup.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/PCI) \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
-  include/linux/fwnode.h \
-  include/linux/vmalloc.h \
-    $(wildcard include/config/HAVE_ARCH_HUGE_VMALLOC) \
-  arch/loongarch/include/asm/vmalloc.h \
-  include/asm-generic/atomic.h \
+  include/linux/build-salt.h \
+    $(wildcard include/config/BUILD_SALT) \
+  include/linux/elfnote.h \
+  include/linux/elfnote-lto.h \
+    $(wildcard include/config/LTO) \
+  include/linux/export-internal.h \
+  include/linux/vermagic.h \
+    $(wildcard include/config/PREEMPT_BUILD) \
+  include/generated/utsrelease.h \
+  arch/loongarch/include/asm/vermagic.h \
 
-/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_led.o: $(deps_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_led.o)
+/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/usr.mod.o: $(deps_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/usr.mod.o)
 
-$(deps_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/s_led_dev/s_led.o):
+$(deps_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/12_spinlock/usr.mod.o):
