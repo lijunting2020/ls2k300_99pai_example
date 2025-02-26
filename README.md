@@ -27,3 +27,37 @@
 ####25_ioctl02：设备控制-基本控制实现
 ####26_ioctl03：设备控制-地址传参
 ####27_ioctl04：设备控制-定时器控制
+
+##S_LED驱动模块使用
+###1.适用99派wifi版
+###2.下截mod_driver/s_led_dev/目录下的s_led.ko和op_led两个文件到开发板。假设已经将这两个文件下截到开发板的/root/目录下。
+###3.远程登录开发板（SSH),以下步骤在开发板上完成。
+###4.cd /etc/systemd/system
+###5.nano s_led.service
+###6.输入或复制如下内容：
+
+Description=Load s_led Kernel Module
+
+After=network.target
+
+[Service]
+
+Type=oneshot
+
+ExecStart=/sbin/insmod /root/s_led.ko
+
+ExecStart=/root/op_led 2
+
+ExecStop=/sbin/rmmod s_led.ko
+
+RemainAfterExit=yes
+
+[Install]
+
+WantedBy=multi-user.target
+
+###7.按ctrl+O
+###8.按ctrl+X
+###9.systemctl start s_led
+###10.systemctl enable s_led
+###11.重启开发板。
