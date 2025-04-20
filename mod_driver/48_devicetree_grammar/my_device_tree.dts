@@ -1,0 +1,16 @@
+/dts-v1/; 
+
+/{
+    model = "This is my devicetree";
+
+    ft5x06@38{
+        compatible = "edt,edt-ft5206";
+        interrupt-parent = <&gpa3>;
+        interrupts = <4 1>;
+    };
+
+    led:led21{
+        compatible = "led";
+        gpios = <&gpa5 0 0>;
+    };
+};

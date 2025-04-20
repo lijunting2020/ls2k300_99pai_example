@@ -1,0 +1,16 @@
+/dts-v1/; 
+
+/{
+    model = "This is my devicetree";
+
+    ft5x06@38{
+        compatible = "edt,edt-ft5206";
+        interrupt-parent = <&gpio0>;
+        interrupts = <RK_PB5 IRQ_TYPE_EDGE_RISING>;
+    };
+
+    led:led@1{
+        compatible = "led";
+        gpios=<&gpio0 RK_PB7 GPIO_ACTIVE_HIGH>;
+    };
+};

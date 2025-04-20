@@ -1,0 +1,41 @@
+/dts-v1/;                             //dts文件的版本
+
+/{                                    //根结点，必须有的,"/"主名称（固定），加一对花括号
+    model = "This is my devicetree";  //modeel属性，描述设备的一些信息，如名称等
+    #address-cells = <1>;             //子结点的reg属性包含1个地址信息
+    #size-cells = <1>;                //子结点的reg属性包含1个地址长度信息
+
+    chosen{                           //uboot使用这个结点给内核传递参数，主要是传递bootargs参数，只能写在根结点下。
+       bootargs = "root=/dev/nfs rw nfsroot=192.168.1.1 console=ttys0,115200";
+    };
+
+    cpu1:cpu@1{
+        device_type = "cpu";         //专门用来给CPU或内存写描述信息的
+        compatible = "loongarch64,2k0300";     //用来和驱动匹配
+        reg = <0x0 0x1>;              //硬件的地址
+    };
+
+    aliases{                          //批量定义别名，可以对结点排序
+        //led1 = &mynode;             //使用&和标签引用1个节点
+        led1 = "/gpio@1610401A";      //使用从根"/"开始的节点名称引用1个结点
+    };
+
+    node1{                            //子结点，结点名称“node1”加一对花括号
+        #address-cells = <1>;
+        #size-cells = <1>;
+        mynode:node1@20220201{               //子子结点，结点名称“node1-child”加一对花括号
+            reg = <0x20220201 0x40>;
+        };
+    };
+
+    node2{                            //同级结点名称不能重复
+        node1-child{
+            pinnum = <0 1 2 3 4>;     //自定义属性
+        };
+    };
+    gpio@1610401A{
+        compatible = "led";
+        reg = <0x1610401A 0x1>;
+        status = "okay";              //设备状态。okay.可用、disabled.不可用、fail.不可用，且有错误、fail-sss.不可用，且有错误和错误内容。
+    };
+};

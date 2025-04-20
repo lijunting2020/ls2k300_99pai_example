@@ -1,0 +1,1 @@
+savedcmd_/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/40_platform_device/platform_device.mod := printf '%s\n'   platform_device.o | awk '!x[$$0]++ { print("/home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/40_platform_device/"$$0) }' > /home/lijunting/aown/git_app/ls2k300_99pai_example/mod_driver/40_platform_device/platform_device.mod
